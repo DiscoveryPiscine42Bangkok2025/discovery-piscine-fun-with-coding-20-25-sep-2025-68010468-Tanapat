@@ -1,0 +1,48 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+}
+
+.parallax-container {
+
+    height: 100%; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#image1 {
+    background-image: url('https://img.freepik.com/premium-vector/vector-illustration-vector-illustration-chibi-chibi-illustration-chibi-art-employee_720563-3746.jpg'); 
+}
+
+#image2 {
+    background-image: url('https://i.pinimg.com/originals/5e/18/a3/5e18a33630f2290079b7fbced2957928.jpg'); 
+}
+
+
+.caption {
+    text-align: center;
+    padding: 50px 80px;
+    background-color: black;
+    color: white;
+}
+
+
+.caption span {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 25px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
