@@ -1,0 +1,18 @@
+/* ทำให้ body มี padding-top เท่ากับความสูงของ navbar 
+   เพื่อไม่ให้เนื้อหาถูก navbar ที่เป็น sticky บังตอนเลื่อนไปที่ section */
+body {
+    padding-top: 56px; /* 56px คือความสูงพื้นฐานของ Bootstrap Navbar */
+}
+
+/* เพิ่มระยะห่างและความสูงขั้นต่ำให้กับแต่ละ section เพื่อให้ดูสวยงาม */
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 80vh;
+}
+
+/* ทำให้รูปโปรไฟล์ดูดีขึ้น */
+.rounded-circle {
+    border: 5px solid #eee;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
