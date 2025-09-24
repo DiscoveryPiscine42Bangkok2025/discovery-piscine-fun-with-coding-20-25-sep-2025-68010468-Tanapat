@@ -1,159 +1,159 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Rush Project - Cyber Security Edition</title>
+    <title>Rush Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #00ff41; /* Neon Green */
-            --background-color: #0d1117; /* Dark GitHub Black */
-            --card-background: #161b22;
-            --border-color: #30363d;
-            --text-color: #c9d1d9;
-        }
-
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            position: relative;
-        }
-
-        /* Scanline Overlay Effect */
-        body::after {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 4px, 6px 100%;
-            z-index: 2; pointer-events: none; animation: scan 7s linear infinite;
-        }
-        @keyframes scan { from { background-position: 0 0; } to { background-position: 0 100vh; } }
-
-        /* Homepage */
-        #homepage { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-        .profile-selection { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-        .profile-card {
-            background-color: var(--card-background); border-radius: 8px; padding: 2rem; text-align: center;
-            width: 300px; border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
-        }
-        .profile-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--primary-color), 0 0 5px var(--primary-color) inset;
-            border-color: var(--primary-color);
-        }
-        .profile-card img {
-            width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--primary-color);
-            object-fit: cover; margin-bottom: 1rem; filter: grayscale(80%) contrast(120%); transition: filter 0.3s;
-        }
-        .profile-card:hover img { filter: grayscale(0%); }
-        .profile-card h3 { color: #fff; }
-        .profile-card .btn {
-            background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);
-            border-radius: 0; padding: 10px 20px; transition: all 0.3s; text-transform: uppercase;
-        }
-        .profile-card:hover .btn { background-color: var(--primary-color); color: var(--background-color); font-weight: bold; }
-
-        /* Glitch Effect */
-        .glitch-text { color: white; font-size: 2.5rem; font-weight: bold; position: relative; }
-        .glitch-text::before, .glitch-text::after {
-            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--background-color);
-        }
-        .glitch-text::before { left: 2px; text-shadow: -1px 0 red; animation: glitch-anim 1.5s infinite linear alternate-reverse; }
-        .glitch-text::after { left: -2px; text-shadow: -1px 0 blue; animation: glitch-anim-2 1.5s infinite linear alternate-reverse; }
-        @keyframes glitch-anim { 0% { clip-path: inset(45% 0 56% 0); } 100% { clip-path: inset(33% 0 46% 0); } }
-        @keyframes glitch-anim-2 { 0% { clip-path: inset(86% 0 1% 0); } 100% { clip-path: inset(5% 0 90% 0); } }
-
-        /* Portfolio Page */
-        .portfolio-page { display: none; }
-        .portfolio-navbar { background-color: var(--card-background) !important; border-bottom: 1px solid var(--border-color); }
-        .portfolio-navbar .navbar-brand, .portfolio-navbar .nav-link { color: #fff !important; }
-        .portfolio-navbar .nav-link:hover { color: var(--primary-color) !important; }
-        .portfolio-section { min-height: 100vh; padding: 100px 0; display: flex; align-items: center; }
-        
-        .intel-list { list-style: none; padding: 0; }
-        .intel-list li { margin-bottom: 0.75rem; font-size: 1.1rem; }
-        .intel-list .label { color: var(--primary-color); display: inline-block; width: 150px; }
-        .intel-list .value { color: var(--text-color); }
-        
-        .skills-subtitle { color: var(--text-color); font-size: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 2rem; }
-
-        .progress { background-color: var(--border-color); border-radius: 0; height: 30px; }
-        .progress-bar { background-color: var(--primary-color); color: var(--background-color); font-weight: bold; }
-        .contact-section .btn { border-radius: 0; font-size: 1.2rem; padding: 10px 25px; transition: all 0.3s; }
-        .btn.btn-outline-success { color: var(--primary-color); border-color: var(--primary-color); }
-        .btn.btn-outline-success:hover { background-color: var(--primary-color); color: #000; }
-
-        .fade-in { animation: fadeIn 0.7s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <section id="homepage">
         <div class="container text-center">
-            <header class="mb-5"><h1 class="glitch-text" data-text="IDENTIFY OPERATIVES">IDENTIFY OPERATIVES</h1><p class="lead text-muted mt-3">// Choose a profile to access asset details.</p></header>
+            <header class="mb-5">
+                <h1 class="glitch-text" data-text="IDENTIFY OPERATIVES">IDENTIFY OPERATIVES</h1>
+                <p class="lead text-muted mt-3">// Choose a profile to access asset details.</p>
+            </header>
             <main class="profile-selection">
-                <div class="profile-card view-portfolio" data-target="#portfolio1"><img src="profile-placeholder.png" alt="Profile 1"><h3>Operator: "Phoenix"</h3><div class="btn">Access File</div></div>
-                <div class="profile-card view-portfolio" data-target="#portfolio2"><img src="profile-placeholder.png" alt="Profile 2"><h3>Operator: "Nyx"</h3><div class="btn">Access File</div></div>
+                <div class="profile-card view-portfolio" data-target="#portfolio1">
+                    <img src="profile-placeholder.png" alt="Profile 1">
+                    <h3>Operator: "TANAPAT"</h3>
+                    <div class="btn">Access File</div>
+                </div>
+                <div class="profile-card view-portfolio" data-target="#portfolio2">
+                    <img src="profile-placeholder.png" alt="Profile 2">
+                    <h3>Operator: "TATIWICH"</h3>
+                    <div class="btn">Access File</div>
+                </div>
             </main>
         </div>
     </section>
 
     <div id="portfolio1" class="portfolio-page">
-        <nav class="navbar portfolio-navbar navbar-expand-lg fixed-top"><div class="container"><a class="navbar-brand fw-bold" href="#">File: PHOENIX</a><div class="navbar-nav"><a class="nav-link" href="#about-p1">01_Intel</a><a class="nav-link" href="#skills-p1">02_Toolkit</a><a class="nav-link" href="#contact-p1">03_Comms</a></div><button class="btn btn-outline-danger ms-auto back-to-home">Disconnect</button></div></nav>
-        <section id="about-p1" class="portfolio-section"><div class="container"><div class="row align-items-center"><div class="col-md-4 text-center"><img src="profile-placeholder.png" class="img-fluid rounded-circle w-75" alt="Photo 1"></div><div class="col-md-8"><h3><span style="color:var(--primary-color)">></span> Subject Dossier</h3><p class="text-muted">// Threat Hunter & Pentester</p><ul class="intel-list mt-4"><li><span class="label">NAME</span>: <span class="value">ใส่ชื่อของคุณ</span></li><li><span class="label">AGE</span>: <span class="value">ใส่อายุ</span></li><li><span class="label">UNIVERSITY</span>: <span class="value">ใส่ชื่อมหาวิทยาลัย</span></li><li><span class="label">FACULTY</span>: <span class="value">ใส่ชื่อคณะ</span></li></ul><p class="mt-3">// Specializes in network infiltration and vulnerability assessment. Proven track record in red team operations.</p></div></div></div></section>
-        
-        <section id="skills-p1" class="portfolio-section bg-dark">
+        <nav class="navbar portfolio-navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <h2 class="text-center mb-5" style="color:var(--primary-color)">Toolkit & Proficiencies</h2>
-                
-                <h3 class="skills-subtitle mb-4">// General Skills</h3>
-                <div class="row mb-5">
-                    <div class="col-md-6 mb-4"><strong>Problem Solving</strong><div class="progress mt-2"><div class="progress-bar" style="width: 95%;">95%</div></div></div>
-                    <div class="col-md-6 mb-4"><strong>Team Collaboration</strong><div class="progress mt-2"><div class="progress-bar" style="width: 85%;">85%</div></div></div>
+                <a class="navbar-brand fw-bold" href="#">File: PUNPUN</a>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#about-p1">01_Profile</a>
+                    <a class="nav-link" href="#skills-p1">02_Showcase</a>
+                    <a class="nav-link" href="#contact-p1">03_Contact</a>
                 </div>
-
-                <h3 class="skills-subtitle mb-4">// Technical Skills</h3>
-                <div class="row">
-                    <div class="col-md-6 mb-4"><strong>Network Security & Pentesting</strong><div class="progress mt-2"><div class="progress-bar" style="width: 90%;">90%</div></div></div>
-                    <div class="col-md-6 mb-4"><strong>Cryptography</strong><div class="progress mt-2"><div class="progress-bar" style="width: 75%;">75%</div></div></div>
+                <button class="btn btn-outline-danger ms-auto back-to-home">Disconnect</button>
+            </div>
+        </nav>
+        <section id="about-p1" class="portfolio-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="profile-placeholder.png" class="img-fluid rounded-circle w-75" alt="Photo 1">
+                    </div>
+                    <div class="col-md-8">
+                        <h3><span style="color:var(--primary-color)">></span> My Profile</h3>
+                        <p class="text-muted">// Student Cyber security </p>
+                        <ul class="intel-list mt-4">
+                            <li><span class="label">NAME</span>: <span class="value">ธนภัทร ฉิมบรรเทิง</span></li>
+                            <li><span class="label">AGE</span>: <span class="value">18</span></li>
+                            <li><span class="label">UNIVERSITY</span>: <span class="value">สถาบันเทคโนโลยีพระจอมเกล้าลาดกระบัง</span></li>
+                            <li><span class="label">FACULTY</span>: <span class="value">วิศวกรรมคอมพิวเตอร์และความปลอดภัยไซเบอร์</span></li>
+                        </ul>
+                        <p class="mt-3">// Specializes in network infiltration and vulnerability assessment. Proven track record in red team operations.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <section id="contact-p1" class="portfolio-section contact-section text-center"><div class="container"><h2 class="mb-4">Establish Comms Link</h2><p class="lead mb-4">// Open secure channels below.</p><div><a href="https://www.instagram.com/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-instagram"></i> Encrypted_IG</a><a href="https://github.com/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-github"></i> Secure_Repo</a></div></div></section>
+        <section id="skills-p1" class="portfolio-section bg-dark">
+            <div class="container">
+                <h2 class="text-center mb-5" style="color:var(--primary-color)">My Skills</h2>
+                <h3 class="skills-subtitle mb-4">// General Skills</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4"><strong>Problem Solving</strong><div class="progress mt-2"><div class="progress-bar" style="width: 65%;">65%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>Communication Skills</strong><div class="progress mt-2"><div class="progress-bar" style="width: 70%;">70%</div></div></div>
+                </div>
+                <h3 class="skills-subtitle mb-4">// Technical Skills</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-4"><strong>Html</strong><div class="progress mt-2"><div class="progress-bar" style="width: 60%;">60%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>Cryptography</strong><div class="progress mt-2"><div class="progress-bar" style="width: 75%;">75%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>C Programming</strong><div class="progress mt-2"><div class="progress-bar" style="width: 65%;">65%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>Cybersecurity Awareness</strong><div class="progress mt-2"><div class="progress-bar" style="width: 80%;">80%</div></div></div>
+                </div>
+            </div>
+        </section>
+        <section id="contact-p1" class="portfolio-section contact-section text-center">
+            <div class="container">
+                <h2 class="mb-4">Contact Me</h2>
+                <p class="lead mb-4">Contact with me on social network</p>
+                <div>
+                    <a href="https://www.instagram.com/tanapat_pp_c/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-instagram"></i> IG</a>
+                    <a href="https://github.com/DiscoveryPiscine42Bangkok2025/discovery-piscine-fun-with-coding-20-25-sep-2025-68010468-Tanapat" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-github"></i> Githup</a>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div id="portfolio2" class="portfolio-page">
-        <nav class="navbar portfolio-navbar navbar-expand-lg fixed-top"><div class="container"><a class="navbar-brand fw-bold" href="#">File: NYX</a><div class="navbar-nav"><a class="nav-link" href="#about-p2">01_Intel</a><a class="nav-link" href="#skills-p2">02_Toolkit</a><a class="nav-link" href="#contact-p2">03_Comms</a></div><button class="btn btn-outline-danger ms-auto back-to-home">Disconnect</button></div></nav>
-        <section id="about-p2" class="portfolio-section"><div class="container"><div class="row align-items-center"><div class="col-md-4 text-center"><img src="profile-placeholder.png" class="img-fluid rounded-circle w-75" alt="Photo 2"></div><div class="col-md-8"><h3><span style="color:var(--primary-color)">></span> Subject Dossier</h3><p class="text-muted">// Malware Analyst & Forensics Expert</p><ul class="intel-list mt-4"><li><span class="label">NAME</span>: <span class="value">ใส่ชื่อของคุณ</span></li><li><span class="label">AGE</span>: <span class="value">ใส่อายุ</span></li><li><span class="label">UNIVERSITY</span>: <span class="value">ใส่ชื่อมหาวิทยาลัย</span></li><li><span class="label">FACULTY</span>: <span class="value">ใส่ชื่อคณะ</span></li></ul><p class="mt-3">// Focuses on deconstructing malicious code and incident response. Expertise in tracking digital footprints.</p></div></div></div></section>
-        
-        <section id="skills-p2" class="portfolio-section bg-dark">
+         <nav class="navbar portfolio-navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <h2 class="text-center mb-5" style="color:var(--primary-color)">Toolkit & Proficiencies</h2>
-                 <h3 class="skills-subtitle mb-4">// General Skills</h3>
-                <div class="row mb-5">
-                    <div class="col-md-6 mb-4"><strong>Analytical Thinking</strong><div class="progress mt-2"><div class="progress-bar" style="width: 90%;">90%</div></div></div>
-                    <div class="col-md-6 mb-4"><strong>Report Writing</strong><div class="progress mt-2"><div class="progress-bar" style="width: 80%;">80%</div></div></div>
+                <a class="navbar-brand fw-bold" href="#">File: SONIC</a>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#about-p2">01_Profile</a>
+                    <a class="nav-link" href="#skills-p2">02_Showcase</a>
+                    <a class="nav-link" href="#contact-p2">03_Contact</a>
                 </div>
-                <h3 class="skills-subtitle mb-4">// Technical Skills</h3>
-                <div class="row">
-                    <div class="col-md-6 mb-4"><strong>Malware Analysis</strong><div class="progress mt-2"><div class="progress-bar" style="width: 95%;">95%</div></div></div>
-                    <div class="col-md-6 mb-4"><strong>Digital Forensics (FTK, Encase)</strong><div class="progress mt-2"><div class="progress-bar" style="width: 90%;">90%</div></div></div>
+                <button class="btn btn-outline-danger ms-auto back-to-home">Disconnect</button>
+            </div>
+        </nav>
+        <section id="about-p2" class="portfolio-section">
+            <div class="container">
+                 <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="profile-placeholder.png" class="img-fluid rounded-circle w-75" alt="Photo 2">
+                    </div>
+                    <div class="col-md-8">
+                        <h3><span style="color:var(--primary-color)">></span> My Profile </h3>
+                        <p class="text-muted">// Student Cyber security </p>
+                        <ul class="intel-list mt-4">
+                            <li><span class="label">NAME</span>: <span class="value">ตติวิชญ์ จักรปิง</span></li>
+                            <li><span class="label">AGE</span>: <span class="value">18</span></li>
+                            <li><span class="label">UNIVERSITY</span>: <span class="value">สถาบันเทคโนโลยีพระจอมเกล้าลาดกระบัง</span></li>
+                            <li><span class="label">FACULTY</span>: <span class="value">วิศวกรรมคอมพิวเตอร์และความปลอดภัยไซเบอร์</span></li>
+                        </ul>
+                        <p class="mt-3">// เบียวเดือดเลือดอสูร</p>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <section id="contact-p2" class="portfolio-section contact-section text-center"><div class="container"><h2 class="mb-4">Establish Comms Link</h2><p class="lead mb-4">// Open secure channels below.</p><div><a href="https://www.instagram.com/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-instagram"></i> Encrypted_IG</a><a href="https://github.com/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-github"></i> Secure_Repo</a></div></div></section>
+        <section id="skills-p2" class="portfolio-section bg-dark">
+            <div class="container">
+                <h2 class="text-center mb-5" style="color:var(--primary-color)">My Skills</h2>
+                <h3 class="skills-subtitle mb-4">// General Skills</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4"><strong>Communication</strong><div class="progress mt-2"><div class="progress-bar" style="width: 60%;">60%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>English Communication</strong><div class="progress mt-2"><div class="progress-bar" style="width: 80%;">80%</div></div></div>
+                </div>
+                <h3 class="skills-subtitle mb-4">// Technical Skills</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-4"><strong>Html</strong><div class="progress mt-2"><div class="progress-bar" style="width: 75%;">75%</div></div></div>
+                    <div class="col-md-6 mb-4"><strong>C Programming</strong><div class="progress mt-2"><div class="progress-bar" style="width: 70%;">70%</div></div></div>
+                </div>
+            </div>
+        </section>
+        <section id="contact-p2" class="portfolio-section contact-section text-center">
+            <div class="container">
+                <h2 class="mb-4">Contact Me</h2>
+                <p class="lead mb-4">Contact with me on social network</p>
+                <div>
+                    <a href="https://www.instagram.com/tw.nic_jp/" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-instagram"></i>IG</a>
+                    <a href="https://github.com/68010394-tatiwich" target="_blank" class="btn btn-outline-success m-2"><i class="bi bi-github"></i>Githup</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>$(document).ready(function() {$('.view-portfolio').on('click', function() {var targetPage = $(this).data('target');$('body').css('overflow', 'hidden');$('#homepage').fadeOut(400, function() {$(targetPage).fadeIn(400, function() {$('body').css('overflow', 'auto');});});});$('.back-to-home').on('click', function() {var currentPage = $(this).closest('.portfolio-page');$('body').css('overflow', 'hidden');currentPage.fadeOut(400, function() {$('#homepage').fadeIn(400, function() {$('body').css('overflow', 'auto');});});});});</script>
+    <script src="script.js"></script>
 </body>
 </html>

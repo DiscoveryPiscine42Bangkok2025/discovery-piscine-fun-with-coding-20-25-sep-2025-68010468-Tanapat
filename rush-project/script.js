@@ -1,23 +1,35 @@
-$(document).ready(function(){
-  // เพิ่ม Smooth scrolling ให้กับทุกลิงก์ที่ href เริ่มต้นด้วย #
-  $("a[href^='#']").on('click', function(event) {
+$(document).ready(function() {
 
-    // ตรวจสอบให้แน่ใจว่า this.hash มีค่าก่อนที่จะ override default behavior
-    if (this.hash !== "") {
-      // ป้องกันการทำงานปกติของลิงก์ (การกระโดด)
-      event.preventDefault();
+    // เมื่อคลิกที่การ์ดโปรไฟล์
+    $('.view-portfolio').on('click', function() {
+        var targetPage = $(this).data('target');
+        
+        // ป้องกันการ scroll ขณะเปลี่ยนหน้า
+        $('body').css('overflow', 'hidden'); 
 
-      // เก็บค่า hash
-      var hash = this.hash;
+        // ซ่อนหน้าแรก แล้วแสดงหน้า portfolio ที่เลือก
+        $('#homepage').fadeOut(400, function() {
+            $(targetPage).fadeIn(400, function() {
+                // อนุญาตให้ scroll ได้อีกครั้ง
+                $('body').css('overflow', 'auto'); 
+            });
+        });
+    });
 
-      // ใช้ jQuery's animate() method เพื่อเพิ่ม smooth page scroll
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-   
-        // เพิ่ม hash (#) ไปที่ URL เมื่อเลื่อนเสร็จ
-        window.location.hash = hash;
-      });
-    } // End if
-  });
+    // เมื่อคลิกปุ่ม 'Disconnect' (กลับหน้าแรก)
+    $('.back-to-home').on('click', function() {
+        var currentPage = $(this).closest('.portfolio-page');
+
+        // ป้องกันการ scroll ขณะเปลี่ยนหน้า
+        $('body').css('overflow', 'hidden'); 
+
+        // ซ่อนหน้า portfolio ปัจจุบัน แล้วกลับไปแสดงหน้าแรก
+        currentPage.fadeOut(400, function() {
+            $('#homepage').fadeIn(400, function() {
+                // อนุญาตให้ scroll ได้อีกครั้ง
+                $('body').css('overflow', 'auto');
+            });
+        });
+    });
+
 });
