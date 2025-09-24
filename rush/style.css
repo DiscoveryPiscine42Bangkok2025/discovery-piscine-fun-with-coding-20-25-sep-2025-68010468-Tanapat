@@ -6,8 +6,8 @@
     --text-color: #c9d1d9;
 }
 
-html { 
-    scroll-behavior: smooth; 
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,45 +19,45 @@ body {
 
 /* Scanline Overlay Effect */
 body::after {
-    content: ""; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
                       linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
     background-size: 100% 4px, 6px 100%;
-    z-index: 2; 
-    pointer-events: none; 
+    z-index: 2;
+    pointer-events: none;
     animation: scan 7s linear infinite;
 }
-@keyframes scan { 
-    from { background-position: 0 0; } 
-    to { background-position: 0 100vh; } 
+@keyframes scan {
+    from { background-position: 0 0; }
+    to { background-position: 0 100vh; }
 }
 
 /* Homepage */
-#homepage { 
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
+#homepage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.profile-selection { 
-    display: flex; 
-    justify-content: center; 
-    gap: 2rem; 
-    flex-wrap: wrap; 
+.profile-selection {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 .profile-card {
-    background-color: var(--card-background); 
-    border-radius: 8px; 
-    padding: 3rem; 
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 2rem;
     text-align: center;
-    width: 300px; 
+    width: 300px;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 .profile-card:hover {
@@ -66,146 +66,164 @@ body::after {
     border-color: var(--primary-color);
 }
 .profile-card img {
-    width: 150px; 
-    height: 150px; 
-    border-radius: 50%; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     border: 4px solid var(--primary-color);
-    object-fit: cover; 
-    margin-bottom: 1rem; 
-    filter: grayscale(80%) contrast(120%); 
+    object-fit: cover;
+    margin-bottom: 1rem;
+    filter: grayscale(80%) contrast(120%);
     transition: filter 0.3s;
 }
-.profile-card:hover img { 
-    filter: grayscale(0%); 
+.profile-card:hover img {
+    filter: grayscale(0%);
 }
-.profile-card h3 { 
-    color: #fff; 
+.profile-card h3 {
+    color: #fff;
 }
 .profile-card .btn {
-    background-color: transparent; 
-    color: var(--primary-color); 
+    background-color: transparent;
+    color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    border-radius: 0; 
-    padding: 10px 20px; 
-    transition: all 0.3s; 
+    border-radius: 0;
+    padding: 10px 20px;
+    transition: all 0.3s;
     text-transform: uppercase;
 }
-.profile-card:hover .btn { 
-    background-color: var(--primary-color); 
-    color: var(--background-color); 
-    font-weight: bold; 
+.profile-card:hover .btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: bold;
 }
 
 /* Glitch Effect */
-.glitch-text { 
-    color: white; 
-    font-size: 4rem; 
-    font-weight: bold; 
-    position: relative; 
+.glitch-text {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
 }
 .glitch-text::before, .glitch-text::after {
-    content: attr(data-text); 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: var(--background-color);
 }
-.glitch-text::before { 
-    left: 2px; 
-    text-shadow: -1px 0 red; 
-    animation: glitch-anim 1.5s infinite linear alternate-reverse; 
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    animation: glitch-anim 1.5s infinite linear alternate-reverse;
 }
-.glitch-text::after { 
-    left: -2px; 
-    text-shadow: -1px 0 blue; 
-    animation: glitch-anim-2 1.5s infinite linear alternate-reverse; 
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
 }
-@keyframes glitch-anim { 
-    0% { clip-path: inset(45% 0 56% 0); } 
-    100% { clip-path: inset(33% 0 46% 0); } 
+@keyframes glitch-anim {
+    0% { clip-path: inset(45% 0 56% 0); }
+    100% { clip-path: inset(33% 0 46% 0); }
 }
-@keyframes glitch-anim-2 { 
-    0% { clip-path: inset(86% 0 1% 0); } 
-    100% { clip-path: inset(5% 0 90% 0); } 
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(86% 0 1% 0); }
+    100% { clip-path: inset(5% 0 90% 0); }
 }
 
 /* Portfolio Page */
-.portfolio-page { 
-    display: none; 
+.portfolio-page {
+    display: none;
 }
-.portfolio-navbar { 
-    background-color: var(--card-background) !important; 
-    border-bottom: 1px solid var(--border-color); 
+.portfolio-navbar {
+    background-color: var(--card-background) !important;
+    border-bottom: 1px solid var(--border-color);
 }
-.portfolio-navbar .navbar-brand, .portfolio-navbar .nav-link { 
-    color: #fff !important; 
+.portfolio-navbar .navbar-brand, .portfolio-navbar .nav-link {
+    color: #fff !important;
 }
-.portfolio-navbar .nav-link:hover { 
-    color: var(--primary-color) !important; 
+.portfolio-navbar .nav-link:hover {
+    color: var(--primary-color) !important;
 }
-.portfolio-section { 
-    min-height: 100vh; 
-    padding: 100px 0; 
-    display: flex; 
-    align-items: center; 
-}
-
-.intel-list { 
-    list-style: none; 
-    padding: 0; 
-}
-.intel-list li { 
-    margin-bottom: 0.75rem; 
-    font-size: 1.1rem; 
-}
-.intel-list .label { 
-    color: var(--primary-color); 
-    display: inline-block; 
-    width: 150px; 
-}
-.intel-list .value { 
-    color: var(--text-color); 
+.portfolio-section {
+    min-height: 100vh;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
 }
 
-.skills-subtitle { 
-    color: var(--text-color); 
-    font-size: 1.2rem; 
-    border-bottom: 1px solid var(--border-color); 
-    padding-bottom: 10px; 
-    margin-bottom: 2rem; 
+.intel-list {
+    list-style: none;
+    padding: 0;
+}
+.intel-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+.intel-list .label {
+    color: var(--primary-color);
+    display: inline-block;
+    width: 150px;
+}
+.intel-list .value {
+    color: var(--text-color);
 }
 
-.progress { 
-    background-color: var(--border-color); 
-    border-radius: 0; 
-    height: 30px; 
+/* --- NEW: Project Card Style --- */
+.project-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    height: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
-.progress-bar { 
-    background-color: var(--primary-color); 
-    color: var(--background-color); 
-    font-weight: bold; 
+.project-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
-.contact-section .btn { 
-    border-radius: 0; 
-    font-size: 1.2rem; 
-    padding: 10px 25px; 
-    transition: all 0.3s; 
-}
-.btn.btn-outline-success { 
-    color: var(--primary-color); 
-    border-color: var(--primary-color); 
-}
-.btn.btn-outline-success:hover { 
-    background-color: var(--primary-color); 
-    color: #000; 
+.project-card h4 {
+    color: #fff;
+    margin-bottom: 1rem;
 }
 
-.fade-in { 
-    animation: fadeIn 0.7s ease-in-out; 
+
+.skills-subtitle {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 2rem;
 }
-@keyframes fadeIn { 
-    from { opacity: 0; } 
-    to { opacity: 1; } 
+
+.progress {
+    background-color: var(--border-color);
+    border-radius: 0;
+    height: 30px;
+}
+.progress-bar {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: bold;
+}
+.contact-section .btn {
+    border-radius: 0;
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    transition: all 0.3s;
+}
+.btn.btn-outline-success {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn.btn-outline-success:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.fade-in {
+    animation: fadeIn 0.7s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
