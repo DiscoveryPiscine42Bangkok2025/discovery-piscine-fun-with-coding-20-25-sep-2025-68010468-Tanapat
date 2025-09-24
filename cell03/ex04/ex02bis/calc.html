@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>It's over 9000 (jQuery)</title>
+</head>
+<body>
+    <input type="text" id="left-operand">
+    <select id="operator">
+        <option value="+">+</option><option value="-">-</option><option value="*">*</option>
+        <option value="/">/</option><option value="%">%</option>
+    </select>
+    <input type="text" id="right-operand">
+    <input type="submit" id="submit-btn" value="Try me!">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#submit-btn').on('click', function() {
+                const leftNum = parseInt($('#left-operand').val(), 10);
+                const rightNum = parseInt($('#right-operand').val(), 10);
+                const operator = $('#operator').val();
+
+                if (isNaN(leftNum) || isNaN(rightNum) || leftNum < 0 || rightNum < 0) {
+                    alert('Error :('); return;
+                }
+                if ((operator === '/' || operator === '%') && rightNum === 0) {
+                    alert("It's over 9000!"); console.log("It's over 9000!"); return;
+                }
+
+                let result = eval(leftNum + operator + rightNum);
+                alert(result);
+                console.log(result);
+            });
+
+            setInterval(() => alert('Please, use me...'), 30000);
+        });
+    </script>
+</body>
+</html>
